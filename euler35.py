@@ -1,23 +1,4 @@
-def gen_primes_to(n):
-	primes = [2]
-	cand = 3
-	
-	while cand < n:
-		is_prime = True
-		idx = 0
-		
-		while primes[idx] <= cand ** 0.5:
-			if cand % primes[idx] == 0:
-				is_prime = False
-				break
-				
-			idx += 1
-			
-		if is_prime: primes.append(cand)
-		
-		cand += 2
-	
-	return primes
+import euler_util
 	
 def skip(n, scale):
 	if scale == 1: return False	# doesn't apply to single digit numbers
@@ -40,7 +21,7 @@ def euler35():
 
 	How many circular primes are there below one million?
 	"""
-	primes = gen_primes_to(1000000)
+	primes = euler_util.gen_primes_to(1000000)
 	circular = []
 	
 	for prime in primes:	
