@@ -1,18 +1,33 @@
-pents = [1]
+partitions = [1]
+pents = []
 
 def gen_ps(n):
 	gen_pent = lambda m: int(0.5 * m * (3*m - 1))
-	p = 0
+	p, idx = 0, 0
 	
-	idx = 1
-	while gen_pent(idx) <= n:
-		if idx % 2: p += pents[n - gen_pent(idx)]
-		else: p -= pents[n - gen_pent(idx)]
+	try: 
+		pent = pents[idx]
+	except: 
+		pent = gen_pent(1)
+		pents.append(pent)
+	
+	while pent <= n:
+		if idx % 4 in [0, 1]: p += partitions[n - pent]
+		else: p -= partitions[n - pent]
 		
-		if idx < 0:  idx = abs(idx)+1
-		else: idx = -idx
+		idx += 1
+		try:
+			pent = pents[idx]
+		except:
+			seed = (idx / 2) + 1
+			if idx % 2:
+				pent = gen_pent(-seed)
+				pents.append(pent)
+			else:
+				pent = gen_pent(seed)
+				pents.append(pent)
 
-	pents.append(p)
+	partitions.append(p)
 	return p
 
 def euler78():
