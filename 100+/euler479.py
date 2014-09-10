@@ -28,7 +28,7 @@ def modinv(a, mod):
 	if gcd != 1: return None
 	else: return x % mod
 	
-def euler479(*args):
+def euler479():
 	base, gap = 0, -3
 	n, s = 10**6, 0
 	
