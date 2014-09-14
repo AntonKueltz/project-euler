@@ -1,6 +1,6 @@
-import util
+import euler_util
 
-primes = util.gen_primes_to(9000)
+primes = euler_util.gen_primes_to(9000)
 
 def is_prime(n):
     for p in primes:
