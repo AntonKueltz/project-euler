@@ -1,27 +1,19 @@
-def is_prime(n):
-	# quick and dirty implementation, there are faster checks
-	i = 3
-	
-	while i <= n**0.5:
-		if n % i == 0: return False
-		i += 2
-		
-	return True
+from euler_util import gen_primes_to
 
 def euler03():
-	"""
-	The prime factors of 13195 are 5, 7, 13 and 29.
+        """
+        The prime factors of 13195 are 5, 7, 13 and 29.
 
-	What is the largest prime factor of the number 600851475143 ?
-	"""
-	largest = 0
-	
-	for i in range(3, int(600851475143**0.5), 2):
-		if 600851475143 % i == 0:
-			if is_prime(i): largest = i
-			if is_prime(600851475143 / i): return 600851475143 / i
-			
-	return largest 
-	
+        What is the largest prime factor of the number 600851475143 ?
+        """
+        n = 600851475143
+        ps = gen_primes_to(10000)
+
+        for p in ps:
+                if n % p == 0: n /= p
+                if p > n: return p
+
+        return -1 # failure
+        
 if __name__ == "__main__":
-	print euler03()
+        print euler03()
