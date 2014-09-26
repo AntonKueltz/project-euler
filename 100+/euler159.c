@@ -18,8 +18,8 @@ int * mdrs(int n){
             int cur = i * fac;
             if(cur >= n) break;
             drs[cur] = (drs[cur] > drs[i]+drs[fac]) ? drs[cur] : drs[i]+drs[fac]; 
-		}
-	}
+        }
+    }
 
     return drs;
 }
