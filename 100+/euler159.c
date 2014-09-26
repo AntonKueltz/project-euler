@@ -29,9 +29,9 @@ int * mdrs(int n){
  * compile with flag std=c99 in gcc
  */
 int main(int argc, char * argv[]){
-	long long sum = 0;
+    long long sum = 0;
     int * drs = mdrs(atoi(argv[1]));
-	for(int i = 2; i < atoi(argv[1]); ++i) sum += drs[i];
-	printf("%lld\n", sum);
+    for(int i = 2; i < atoi(argv[1]); ++i) sum += drs[i];
+    printf("%lld\n", sum);
 }
         
