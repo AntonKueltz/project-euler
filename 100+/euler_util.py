@@ -7,7 +7,7 @@ def gen_primes_to(n):
         for f in ps[:int(n**0.5)]:
                 if prime[(f-2) / 2]: prime[(f*3 - 2) / 2::f] = 0
                 
-        return numpy.insert(ps[prime], 0, 2).tolist()
+        return map(int, numpy.insert(ps[prime], 0, 2).tolist())
 
 def is_prime(n):
 	"""
