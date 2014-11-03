@@ -1,8 +1,5 @@
 project-euler
 =============
+Solutions are written mostly in Python, some C when I really need the performance. The Haskell solutions are purely for fun and approaching the problems with a different programming paradigm. Some of the resources used to assist with solution development include Wikipedia, OEIS, and various papers on mathematical topics. Generally these resources are used only to optimize the program to run efficiently and if possible I try to avoid them.
 
-Solutions (Python) for Project Euler problems. All code is my own.
-
-Some solutions were developed by referencing number theory topics on Wikipedia. 
-
-All solutions run on a laptop i5 @2.4ghz in under a minute.
+All solutions run on a [somewhat old] laptop i5 @2.4ghz in under a minute.
