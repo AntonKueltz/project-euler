@@ -1,4 +1,5 @@
 from euler_util import gen_primes_to
+from euler_util import timed
 
 def gen_next_row(prev_row):
 	next_row = []
@@ -14,6 +15,7 @@ def square_free(val, ps):
 		if val % (p*p) == 0: return False
 	return True
 
+@timed
 def euler203():
 	vals = [1, 2]
 	row = [1, 2, 1]

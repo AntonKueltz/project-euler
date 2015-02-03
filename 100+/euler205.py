@@ -1,5 +1,7 @@
 from itertools import product
+from euler_util import timed
 
+@timed
 def euler205():
     prolls = [sum(p) for p in product(range(1, 5), repeat=9)]
     crolls = [sum(p) for p in product(range(1, 7), repeat=6)]

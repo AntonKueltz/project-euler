@@ -1,4 +1,5 @@
 import numpy
+import time
 
 def gen_primes_to(n):
         ps = numpy.arange(3, n+1, 2)
@@ -21,3 +22,12 @@ def is_prime(n):
 		if n % cand == 0: return False
 		
 	return True
+
+def timed(func):
+	def inner(*args, **kwargs):
+		start = time.time()
+		ret = func(*args, **kwargs)
+		end = time.time()
+		print 'Ran in {} seconds.'.format(end-start)
+		return ret
+	return inner

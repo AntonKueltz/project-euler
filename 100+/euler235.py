@@ -1,3 +1,5 @@
+from euler_util import timed
+
 def u(k, r):
     return (900 - (3 * k)) * (r ** (k-1))  
 
@@ -9,6 +11,7 @@ def s(n, r):
 
     return sm
 
+@timed
 def euler235():
     n = 5000
     r = 1.0
