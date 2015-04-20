@@ -12,15 +12,13 @@ def euler214():
 		for r in range(p, n, p):
 			ts[r] = int(ts[r] * (1.0 - 1.0 / p))
 
-	print ts[:20]
-
 	ls[1] = 1
 	for i in range(2, len(ls)):
 		ls[i] = ls[ts[i]] + 1
 
 		# if prime chain is 25
 		if ts[i] == i-1 and ls[i] == 25: s += i
-	
+
 	return s
 
 if __name__ == "__main__":
