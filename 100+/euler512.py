@@ -19,7 +19,6 @@ def euler214():
         s += ts[i]
 
     return s
-    # return sum([ts[i] for i in xrange(1, n+1, 2)])
 
 if __name__ == '__main__':
     print euler214()
