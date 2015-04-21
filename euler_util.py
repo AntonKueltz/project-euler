@@ -1,23 +1,33 @@
+import numpy
+import time
+
 def gen_primes_to(n):
+        ps = numpy.arange(3, n+1, 2)
+        prime = numpy.ones((n-1) / 2, dtype=bool)
+
+        for f in ps[:int(n**0.5)]:
+                if prime[(f-2) / 2]: prime[(f*3 - 2) / 2::f] = 0
+
+        return map(int, numpy.insert(ps[prime], 0, 2).tolist())
+
+def is_prime(n):
 	"""
-	generate all prime numbers up to n
+	check if a number is prime
 	"""
-	primes = [2]
-	cand = 3
+	if n < 1: return False
 
-	while cand < n:
-		is_prime = True
-		idx = 0
+	cands = range(2, int(n**0.5)+1)
 
-		while primes[idx] <= cand ** 0.5:
-			if cand % primes[idx] == 0:
-				is_prime = False
-				break
+	for cand in cands:
+		if n % cand == 0: return False
 
-			idx += 1
+	return True
 
-		if is_prime: primes.append(cand)
-
-		cand += 2
-
-	return primes
+def timed(func):
+	def inner(*args, **kwargs):
+		start = time.time()
+		ret = func(*args, **kwargs)
+		end = time.time()
+		print 'Ran in {} seconds.'.format(end-start)
+		return ret
+	return inner
