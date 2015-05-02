@@ -2,7 +2,7 @@ from euler_util import gen_primes_to, timed
 
 
 @timed
-def euler214():
+def euler512():
     n = 5 * 10**8
     ps = gen_primes_to(n+1)
     ts = range(n+1)
@@ -21,4 +21,4 @@ def euler214():
     return s
 
 if __name__ == '__main__':
-    print euler214()
+    print euler512()
