@@ -1,4 +1,6 @@
 for filename in $(ls | egrep Euler[0-9]+.cpp); do
     g++ $filename EulerUtil.cpp -o run -std=c++11 -Wall -O2
+    echo $filename
     ./run
+    printf "\n"
 done
