@@ -46,7 +46,7 @@ uint64_t EulerUtil::gcd(uint64_t n, uint64_t m){
     return n;
 }
 
-uint64_t EulerUtil::numberOfFactors(uint64_t n){
+uint64_t EulerUtil::numberOfDivisors(uint64_t n){
     // currently naive, TODO - implement prime based approach
     uint64_t factors = 0, root = uint64_t(sqrt(n));
 

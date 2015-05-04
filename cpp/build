@@ -1,1 +1,1 @@
-g++ Euler$1.cpp EulerUtil.cpp -o run -std=c++11
+g++ Euler$1.cpp EulerUtil.cpp -o run -std=c++11 -Wall -O2
