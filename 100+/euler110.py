@@ -1,13 +1,13 @@
 from euler_util import gen_primes_to, timed
 
-hcns = []
+lowest = 10**100
 
 
 def gen_hcn(ps, n, i, divs):
-    global hcns
+    global lowest
     if (ps == [] or i == 0):
-        if divs >= 8000000:
-            hcns.append(n)
+        if divs >= 8000000 and n < lowest:
+            lowest = n
         return
 
     for a in range(i+1):
@@ -20,7 +20,7 @@ def gen_hcn(ps, n, i, divs):
 def euler110():
     ps = gen_primes_to(50)
     gen_hcn(ps, 1, 8, 1)
-    return min(hcns)
+    return lowest
 
 if __name__ == '__main__':
     print euler110()
