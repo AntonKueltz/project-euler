@@ -73,3 +73,16 @@ std::vector<uint64_t> EulerUtil::divisors(uint64_t n){
 
     return divs;
 }
+
+uint64_t EulerUtil::modExp(uint64_t base, uint64_t exponent, uint64_t mod){
+    uint64_t result = 1;
+    base = base % mod;
+
+    while(exponent > 0){
+        if(exponent & 0x1) result = (result * base) % mod;
+        exponent = exponent >> 1;
+        base = (base * base) % mod;
+    }
+
+    return result;
+}
