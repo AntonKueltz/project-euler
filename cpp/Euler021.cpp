@@ -12,13 +12,13 @@ uint64_t e021(){
     std::vector<uint64_t> dSums(n, 0);
 
     for(uint32_t i = 2; i < n; ++i){
-        std::vector<uint64_t> divs = EulerUtil::divisors(i);
+        std::vector<uint64_t> divs = EulerUtil::properDivisors(i);
         uint64_t divSum = 0;
 
         for(uint32_t j = 0; j < divs.size(); ++j)
             divSum += divs[j];
 
-        dSums[i] = divSum - i;
+        dSums[i] = divSum;
 
         if(dSums[i] != i && dSums[i] < i && dSums[dSums[i]] == i){
             sum += (dSums[i] + i);

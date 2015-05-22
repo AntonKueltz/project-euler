@@ -59,15 +59,17 @@ uint64_t EulerUtil::numberOfDivisors(uint64_t n){
     return factors;
 }
 
-std::vector<uint64_t> EulerUtil::divisors(uint64_t n){
+std::vector<uint64_t> EulerUtil::properDivisors(uint64_t n){
     std::vector<uint64_t> divs;
-    uint32_t root = (uint32_t)sqrt(n);
-    if(root * root == n) divs.push_back(root);
+    if(n == 1) return divs;
 
-    for(uint32_t i = 1; i < root; ++i){
+    divs.push_back(1);
+    uint32_t root = (uint32_t)sqrt(n);
+
+    for(uint32_t i = 2; i <= root; ++i){
         if(n % i == 0){
             divs.push_back(i);
-            divs.push_back(n / i);
+            if(i * i != n) divs.push_back(n / i);
         }
     }
 
