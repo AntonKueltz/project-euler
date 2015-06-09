@@ -1,9 +1,11 @@
 #include "EulerUtil.hpp"
 
 #include <cmath>
+#include <cstdlib>
+#include <ctime>
 #include <iostream>
 
-std::vector<uint64_t> EulerUtil::primesUpTo(const uint64_t & n){
+std::vector<uint64_t> EulerUtil::primesUpTo(const uint64_t n){
     std::vector<uint64_t> primes;
     std::vector<bool> isPrime(n, true);
     primes.reserve(n / uint64_t(log(n)));
@@ -21,7 +23,18 @@ std::vector<uint64_t> EulerUtil::primesUpTo(const uint64_t & n){
     return primes;
 }
 
-uint64_t EulerUtil::reverse(const uint64_t & n){
+bool EulerUtil::isPrime(const int64_t n){
+    if(n < 2 || n % 2 == 0) return false;
+
+    // TODO - Rabin Miller
+    for(uint64_t i = 3; i <= uint64_t(sqrt(n)); i += 2){
+        if(n % i == 0) return false;
+    }
+
+    return true;
+}
+
+uint64_t EulerUtil::reverse(const uint64_t n){
     uint64_t n_ = n, revn = 0;
 
     while(n_ > 0){
@@ -32,7 +45,7 @@ uint64_t EulerUtil::reverse(const uint64_t & n){
     return revn;
 }
 
-bool EulerUtil::isPalindrome(const uint64_t & n){
+bool EulerUtil::isPalindrome(const uint64_t n){
     return reverse(n) == n;
 }
 

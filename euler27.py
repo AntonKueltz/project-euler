@@ -21,7 +21,7 @@ def euler27():
 
 	where |n| is the modulus/absolute value of n
 	e.g. |11| = 11 and |-4| = 4
-	
+
 	Find the product of the coefficients, a and b, for the quadratic
 	expression that produces the maximum number of primes for consecutive
 	values of n, starting with n = 0.
@@ -30,23 +30,23 @@ def euler27():
 	longest = 0
 	product = 0
 	idx = 0
-	
+
 	while idx < len(primes):
 		b = primes[idx]
-		
+
 		for a in range(-999, 1000):
 			consec = 0
 			n = 0
 			quad_eq = lambda x: x**2 + a*x + b
-			
+
 			while quad_eq(n) in primes:
 				consec += 1
 				n += 1
-				
+
 			if consec > longest: (longest, product) = (consec, a * b)
-			
+
 		idx += 1
-		
+
 	return product
 
 if __name__ == "__main__":
