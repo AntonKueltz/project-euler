@@ -1,13 +1,16 @@
 #include <chrono>
-#include <cmath>
 #include <cstdint>
 #include <iostream>
+
+uint64_t fifthPow(uint32_t n){
+    return n * n * n * n * n;
+}
 
 uint64_t digitFithPower(uint64_t n){
     uint64_t sum = 0;
 
     while(n){
-        sum += (uint64_t)pow(n % 10, 5);
+        sum += fifthPow(n % 10);
         n /= 10;
     }
 
@@ -17,7 +20,7 @@ uint64_t digitFithPower(uint64_t n){
 uint64_t e030(){
     uint64_t sum = 0;
 
-    for(uint32_t i = 2; i <= (uint32_t)pow(9, 5) * 6; ++i){
+    for(uint32_t i = 2; i <= fifthPow(9) * 5; ++i){
         if(i == digitFithPower(i))
             sum += i;
     }
