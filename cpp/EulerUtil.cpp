@@ -101,3 +101,21 @@ uint64_t EulerUtil::modExp(uint64_t base, uint64_t exponent, uint64_t mod){
 
     return result;
 }
+
+bool EulerUtil::isPandigital(uint64_t n, uint8_t length){
+    std::vector<bool> digits(length+1, false);
+
+    while(n){
+        uint8_t digit = n % 10;
+        if(digits[digit]) return false;
+        if(digit == 0) return false;
+
+        digits[digit] = true;
+        n /= 10;
+    }
+
+    for(uint8_t i = 1; i < digits.size(); ++i)
+        if(!digits[i]) return false;
+
+    return true;
+}
