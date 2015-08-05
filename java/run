@@ -1,0 +1,2 @@
+javac Euler$1.java EulerUtil.java
+java Euler$1

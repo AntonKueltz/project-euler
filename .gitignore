@@ -1,5 +1,6 @@
 *.exe
+*.class
 *.pyc
 *.o
-run
+cpp/run
 recoverykey.txt
