@@ -1,15 +1,7 @@
 from euler_util import gen_primes_to
 
-def egcd(a, b):
-	if a == 0: return (b, 0, 1)
-	else:
-		g, y, x = egcd(b % a, a)
-		return (g, x-(b // a)*y, y)
-
 def modinv(a, mod):
-	gcd, x, y = egcd(a, mod)
-	if gcd != 1: return None
-	else: return x % mod
+    return pow(a, mod-2, mod)
 
 def S(p):
 	v1 = modinv(p-2, p)
